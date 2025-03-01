@@ -80,23 +80,3 @@ class Socket:
         if self.sock:
             self.sock.close()
             logging.info(f"Closed sock for host {self.host} on port {self.port}")
-
-'''def receive():
-    while True:
-        data = s.recv(1024)
-        if not data:
-            break
-        print(data)
-
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    s.connect((HOST, PORT))
-    x = threading.Thread(target=receive)
-    x.start()
-    while True:
-        s.sendall(b"Hello World")
-        data1 = s.recv(1024)
-        s.sendall(b"testtest")
-        data2 = s.recv(1024)
-        print(f"Received {data1!r}")
-        print(f"Received {data2!r}")
-        time.sleep(1)'''
