@@ -22,8 +22,8 @@ wheel = Wheel((0, 0), (2, 3))
 wheel.speed = 0
 wheel.setspeed()
 while True:
-    sleep(0.1)
-    if wheel.speed <= 1:
+    sleep(0.5)
+    if wheel.speed <= 0.95:
         wheel.speed += 0.05
         wheel.setspeed()
         print(f"Motor speed set to {wheel.speed}")
