@@ -19,10 +19,11 @@ class Wheel:
 
 wheel = Wheel((0, 0), (2, 3))
 
-wheel.speed = 1
+wheel.speed = 0
 wheel.setspeed()
 while True:
-    sleep(5)
-    wheel.speed *= -1
-    wheel.setspeed()
-    print("Motor reversed")
+    sleep(0.1)
+    if wheel.speed <= 1:
+        wheel.speed += 0.05
+        wheel.setspeed()
+        print(f"Motor speed set to {wheel.speed}")
