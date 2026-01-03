@@ -52,8 +52,8 @@ if __name__ == '__main__':
         sleep(0.1)
         angle += 0.1
         lf, rf, lb, rb = mecanum(angle, 0.1)
-        wheellb.setspeed(lb)
-        wheelrb.setspeed(rb)
-        wheellf.setspeed(lf)
-        wheelrf.setspeed(rf)
+        wheellb.setspeed(1)
+        wheelrb.setspeed(1)
+        wheellf.setspeed(1)
+        wheelrf.setspeed(1)
 
