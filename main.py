@@ -1,6 +1,5 @@
 import logging
 import atexit
-import time
 import os
 import configparser
 import pickle
@@ -45,10 +44,15 @@ if __name__ == '__main__':
             (angle, speed) = pickle.loads(data)
             logging.info(f"Received data: angle = {angle}, speed = {speed}")
 
-            lf, rf, lb, rb = motors.mecanum(angle, speed)
+            '''lf, rf, lb, rb = motors.mecanum(angle, speed)
             wheellb.setspeed(lb)
             wheelrb.setspeed(rb)
             wheellf.setspeed(lf)
-            wheelrf.setspeed(rf)
+            wheelrf.setspeed(rf)'''
+
+            wheellb.setspeed(speed)
+            wheelrb.setspeed(speed)
+            wheellf.setspeed(speed)
+            wheelrf.setspeed(speed)
 
         
