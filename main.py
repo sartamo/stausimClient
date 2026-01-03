@@ -40,7 +40,6 @@ if __name__ == '__main__':
     s = communication.Socket(config.get('socket', 'ip'), config.getint('socket', 'port'))
     s.setup()
     while True:
-        time.sleep(2)
         data = s.receive()[0]
         if data:
             tuple = pickle.loads(data)
