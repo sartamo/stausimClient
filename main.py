@@ -41,7 +41,7 @@ if __name__ == '__main__':
     s.setup()
     while True:
         time.sleep(2)
-        data = s.receive()
+        data = s.receive()[0]
         if data:
             tuple = pickle.loads(data)
             print(tuple)
