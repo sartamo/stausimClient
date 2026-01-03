@@ -62,7 +62,7 @@ class Socket:
 
     def receive(self):
         if self.receiveBuffer:
-            data = self.receiveBuffer
+            data = self.receiveBuffer[0]
             self.receiveBuffer.pop(0)
             return data
         else:

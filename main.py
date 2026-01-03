@@ -40,11 +40,11 @@ if __name__ == '__main__':
     s = communication.Socket(config.get('socket', 'ip'), config.getint('socket', 'port'))
     s.setup()
     while True:
-        data = s.receive()[0]
+        data = s.receive()
         if data:
             (angle, speed) = pickle.loads(data)
             logging.info(f"Received data: angle = {angle}, speed = {speed}")
-            
+
             lf, rf, lb, rb = motors.mecanum(angle, speed)
             wheellb.setspeed(lb)
             wheelrb.setspeed(rb)
