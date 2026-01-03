@@ -5,13 +5,13 @@ import configparser
 import os
 import math
 
-def mecanum(angle, magnitude):
-    assert magnitude <= 1 and magnitude >= 0 # speeds between 0 and 1 allowed
+def mecanum(angle, speed):
+    assert speed <= 1 and speed >= 0 # speeds between 0 and 1 allowed
 
-    rf = math.sin(angle - math.pi / 4) * magnitude
+    rf = math.sin(angle - math.pi / 4) * speed
     lb = rf
 
-    lf = math.sin(angle + math.pi / 4) * magnitude
+    lf = math.sin(angle + math.pi / 4) * speed
     rb = lf
 
     return lf, rf, lb, rb

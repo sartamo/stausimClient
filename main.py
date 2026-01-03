@@ -42,6 +42,13 @@ if __name__ == '__main__':
     while True:
         data = s.receive()[0]
         if data:
-            tuple = pickle.loads(data)
-            print(tuple)
+            (angle, speed) = pickle.loads(data)
+            logging.info(f"Received data: angle = {angle}, speed = {speed}")
+            
+            lf, rf, lb, rb = motors.mecanum(angle, speed)
+            wheellb.setspeed(lb)
+            wheelrb.setspeed(rb)
+            wheellf.setspeed(lf)
+            wheelrf.setspeed(rf)
+
         
