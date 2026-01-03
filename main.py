@@ -21,7 +21,6 @@ if __name__ == '__main__':
     config = configparser.ConfigParser()
     config.read(config_path)
 
-
     wheellb = motors.Wheel(config.getint('leftback', 'pin1'), config.getint('leftback', 'pin2'))
     wheelrb = motors.Wheel(config.getint('rightback', 'pin1'), config.getint('rightback', 'pin2'))
     wheellf = motors.Wheel(config.getint('leftfront', 'pin1'), config.getint('leftfront', 'pin2'))
@@ -50,15 +49,15 @@ if __name__ == '__main__':
                 (angle, speed) = pickle.loads(data)
                 logging.info(f"Received data: angle = {angle}, speed = {speed}")
 
-                '''lf, rf, lb, rb = motors.mecanum(angle, speed)
+                lf, rf, lb, rb = motors.mecanum(angle, speed)
                 wheellb.setspeed(lb)
                 wheelrb.setspeed(rb)
                 wheellf.setspeed(lf)
-                wheelrf.setspeed(rf)'''
+                wheelrf.setspeed(rf)
 
-                wheellb.setspeed(speed)
+                ''' wheellb.setspeed(speed)
                 wheelrb.setspeed(speed)
                 wheellf.setspeed(speed)
-                wheelrf.setspeed(speed)
+                wheelrf.setspeed(speed)'''
 
             
