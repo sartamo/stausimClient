@@ -4,15 +4,16 @@ import time
 import os
 import configparser
 
+
 import communication
 import motors
 
 def exit_handler():
     logging.info("Exiting program")
-    wheellb.setspeed(0)
-    wheelrb.setspeed(0)
-    wheellf.setspeed(0)
-    wheelrf.setspeed(0)
+    wheellb.motor.close()
+    wheelrb.motor.close()
+    wheellf.motor.close()
+    wheelrf.motor.close()
     s.close()
 
 if __name__ == '__main__':
