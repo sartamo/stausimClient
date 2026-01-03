@@ -2,9 +2,10 @@ from gpiozero import Motor
 from time import sleep
 import logging
 import configparser
+import os
 import math
 
-def mecanumSpeeds(angle, magnitude):
+def mecanum(angle, magnitude):
     assert magnitude <= 1 and magnitude >= 0 # speeds between 0 and 1 allowed
 
     rf = math.sin(angle - math.pi / 4) * magnitude
@@ -32,8 +33,10 @@ class Wheel:
             self.motor.stop()
         logging.info(f"Motor speed set to {self.speed} at ports {self.port1}, {self.port2}")
 
+script_dir = os.path.dirname(__file__)
+config_path = os.path.join(script_dir, 'config.ini')
 config = configparser.ConfigParser()
-config.read('config.ini')
+config.read(config_path)
 
 wheellb = Wheel(config.getint('leftback', 'pin1'), config.getint('leftback', 'pin2'))
 wheelrb = Wheel(config.getint('rightback', 'pin1'), config.getint('rightback', 'pin2'))
@@ -48,7 +51,7 @@ if __name__ == '__main__':
     while True:
         sleep(0.1)
         angle += 0.1
-        lf, rf, lb, rb = mecanumSpeeds(angle, 0.1)
+        lf, rf, lb, rb = mecanum(angle, 0.1)
         wheellb.setspeed(lb)
         wheelrb.setspeed(rb)
         wheellf.setspeed(lf)
