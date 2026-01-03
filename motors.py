@@ -33,17 +33,17 @@ class Wheel:
             self.motor.stop()
         logging.info(f"Motor speed set to {self.speed} at ports {self.port1}, {self.port2}")
 
-script_dir = os.path.dirname(__file__)
-config_path = os.path.join(script_dir, 'config.ini')
-config = configparser.ConfigParser()
-config.read(config_path)
-
-wheellb = Wheel(config.getint('leftback', 'pin1'), config.getint('leftback', 'pin2'))
-wheelrb = Wheel(config.getint('rightback', 'pin1'), config.getint('rightback', 'pin2'))
-wheellf = Wheel(config.getint('leftfront', 'pin1'), config.getint('leftfront', 'pin2'))
-wheelrf = Wheel(config.getint('rightfront', 'pin1'), config.getint('rightfront', 'pin2'))
-
 if __name__ == '__main__':
+    script_dir = os.path.dirname(__file__)
+    config_path = os.path.join(script_dir, 'config.ini')
+    config = configparser.ConfigParser()
+    config.read(config_path)
+
+    wheellb = Wheel(config.getint('leftback', 'pin1'), config.getint('leftback', 'pin2'))
+    wheelrb = Wheel(config.getint('rightback', 'pin1'), config.getint('rightback', 'pin2'))
+    wheellf = Wheel(config.getint('leftfront', 'pin1'), config.getint('leftfront', 'pin2'))
+    wheelrf = Wheel(config.getint('rightfront', 'pin1'), config.getint('rightfront', 'pin2'))
+
     format = "%(asctime)s: %(message)s"
     logging.basicConfig(format=format, level=logging.INFO, datefmt="%H:%M:%S")
 
