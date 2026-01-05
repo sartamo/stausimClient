@@ -55,9 +55,9 @@ if __name__ == '__main__':
                 wheellf.setspeed(lf)
                 wheelrf.setspeed(rf)'''
 
-                wheellb.setspeed(speed)
-                wheelrb.setspeed(speed)
-                wheellf.setspeed(speed)
-                wheelrf.setspeed(speed)
+                wheellb.setspeed(speed * config.getint('leftback', 'speed'))
+                wheelrb.setspeed(speed * config.getint('rightback', 'speed'))
+                wheellf.setspeed(speed * config.getint('leftfront', 'speed'))
+                wheelrf.setspeed(speed * config.getint('rightfront', 'speed'))
 
             
