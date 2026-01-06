@@ -55,11 +55,13 @@ if __name__ == '__main__':
                 wheellf.setspeed(lf)
                 wheelrf.setspeed(rf)'''
 
-                speeds = [0, config.getint('speeds', '1')/100, config.getint('speeds', '2')/100, config.getint('speeds', '3')/100]
-
-                wheellb.setspeed(speeds[speed] * config.getint('leftback', 'speed') / 100)
-                wheelrb.setspeed(speeds[speed] * config.getint('rightback', 'speed') / 100)
-                wheellf.setspeed(speeds[speed] * config.getint('leftfront', 'speed') / 100)
-                wheelrf.setspeed(speeds[speed] * config.getint('rightfront', 'speed') / 100)
+                v0 = [0, config.getint('leftback', '1')/100, config.getint('leftback', '2')/100, config.getint('leftback', '3')/100]
+                wheellb.setspeed(v0[speed] * config.getint('leftback', 'speed') / 100)
+                v1 = [0, config.getint('rightback', '1')/100, config.getint('rightback', '2')/100, config.getint('rightback', '3')/100]
+                wheelrb.setspeed(v1[speed] * config.getint('rightback', 'speed') / 100)
+                v2 = [0, config.getint('leftfront', '1')/100, config.getint('leftfront', '2')/100, config.getint('leftfront', '3')/100]
+                wheellf.setspeed(v2[speed] * config.getint('leftfront', 'speed') / 100)
+                v3 = [0, config.getint('rightfront', '1')/100, config.getint('rightfront', '2')/100, config.getint('rightfront', '3')/100]
+                wheelrf.setspeed(v3[speed] * config.getint('rightfront', 'speed') / 100)
 
             
